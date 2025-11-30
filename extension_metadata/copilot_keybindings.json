@@ -1,0 +1,43 @@
+[
+  {
+    "command": "github.copilot.acceptCursorPanelSolution",
+    "key": "ctrl+/",
+    "mac": "ctrl+/",
+    "when": "activeWebviewPanelId == 'GitHub Copilot Suggestions'"
+  },
+  {
+    "command": "github.copilot.previousPanelSolution",
+    "key": "alt+[",
+    "mac": "alt+[",
+    "when": "activeWebviewPanelId == 'GitHub Copilot Suggestions'"
+  },
+  {
+    "command": "github.copilot.nextPanelSolution",
+    "key": "alt+]",
+    "mac": "alt+]",
+    "when": "activeWebviewPanelId == 'GitHub Copilot Suggestions'"
+  },
+  {
+    "command": "github.copilot.acceptCursorComparisonPanelSolution",
+    "key": "ctrl+shift+/",
+    "mac": "ctrl+shift+/",
+    "when": "activeWebviewPanelId == 'GitHub Copilot Comparison' && github.copilot.comparisonPanelEnabled"
+  },
+  {
+    "command": "github.copilot.previousComparisonPanelSolution",
+    "key": "alt+shift+[",
+    "mac": "alt+shift+[",
+    "when": "activeWebviewPanelId == 'GitHub Copilot Comparison' && github.copilot.comparisonPanelEnabled"
+  },
+  {
+    "command": "github.copilot.nextComparisonPanelSolution",
+    "key": "alt+shift+]",
+    "mac": "alt+shift+]",
+    "when": "activeWebviewPanelId == 'GitHub Copilot Comparison' && github.copilot.comparisonPanelEnabled"
+  },
+  {
+    "command": "editor.action.inlineSuggest.trigger",
+    "key": "alt+\\",
+    "when": "editorTextFocus && !editorHasSelection && !inlineSuggestionsVisible"
+  }
+]

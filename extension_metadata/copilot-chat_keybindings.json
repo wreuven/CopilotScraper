@@ -1,0 +1,8 @@
+[
+  {
+    "command": "github.copilot.chat.rerunWithCopilotDebug",
+    "key": "ctrl+alt+.",
+    "mac": "cmd+alt+.",
+    "when": "github.copilot-chat.activated && terminalShellIntegrationEnabled && terminalFocus && !terminalAltBufferActive"
+  }
+]

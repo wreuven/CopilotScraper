@@ -1,0 +1,30 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# VS Code extensions (large binaries)
+extensions/
+*.vsix
+
+# Temporary files
+/tmp/
+*.log
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Other
+*.swp
+*.swo
+*~

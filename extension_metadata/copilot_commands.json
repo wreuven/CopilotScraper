@@ -1,0 +1,112 @@
+[
+  {
+    "command": "github.copilot.toggleStatusMenu",
+    "title": "Open Status Menu",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.signIn",
+    "title": "Sign In",
+    "category": "GitHub Copilot",
+    "enablement": "!github.copilot.activated"
+  },
+  {
+    "command": "github.copilot.acceptCursorPanelSolution",
+    "title": "Accept Panel Suggestion at the Cursor",
+    "enablement": "github.copilot.panelVisible",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.previousPanelSolution",
+    "title": "Navigate to the Previous Panel Suggestion",
+    "enablement": "github.copilot.panelVisible",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.nextPanelSolution",
+    "title": "Navigate to the Next Panel Suggestion",
+    "enablement": "github.copilot.panelVisible",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.generate",
+    "title": "Open Completions Panel",
+    "enablement": "github.copilot.activated && !isWeb",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.generateComparison",
+    "title": "Open Comparison Panel",
+    "enablement": "github.copilot.activated && !isWeb && github.copilot.comparisonPanelEnabled",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.acceptCursorComparisonPanelSolution",
+    "title": "Accept Comparison Panel Suggestion at the Cursor",
+    "enablement": "github.copilot.comparisonPanelVisible && github.copilot.comparisonPanelEnabled",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.previousComparisonPanelSolution",
+    "title": "Navigate to the Previous Comparison Panel Suggestion",
+    "enablement": "github.copilot.comparisonPanelVisible && github.copilot.comparisonPanelEnabled",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.nextComparisonPanelSolution",
+    "title": "Navigate to the Next Comparison Panel Suggestion",
+    "enablement": "github.copilot.comparisonPanelVisible && github.copilot.comparisonPanelEnabled",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.completions.disable",
+    "title": "Disable Completions",
+    "enablement": "github.copilot.activated && config.editor.inlineSuggest.enabled && github.copilot.completions.enabled",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.completions.enable",
+    "title": "Enable Completions",
+    "enablement": "github.copilot.activated && !(config.editor.inlineSuggest.enabled && github.copilot.completions.enabled)",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.completions.toggle",
+    "title": "Toggle (Enable/Disable) Completions",
+    "enablement": "github.copilot.activated",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.sendFeedback",
+    "title": "Send Feedback",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.collectDiagnostics",
+    "title": "Collect Diagnostics",
+    "category": "GitHub Copilot",
+    "enablement": "!isWeb"
+  },
+  {
+    "command": "github.copilot.openLogs",
+    "title": "Open Logs",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.openModelPicker",
+    "title": "Change Completions Model",
+    "category": "GitHub Copilot",
+    "enablement": "!isWeb"
+  },
+  {
+    "command": "github.copilot.sendCompletionFeedback",
+    "title": "Send Copilot Completion Feedback",
+    "category": "GitHub Copilot",
+    "enablement": "!isWeb"
+  },
+  {
+    "command": "github-copilot-completions-debugger-view.refresh",
+    "title": "Refresh",
+    "icon": "$(refresh)"
+  }
+]

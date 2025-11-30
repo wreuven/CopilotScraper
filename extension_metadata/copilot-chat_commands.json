@@ -1,0 +1,532 @@
+[
+  {
+    "command": "github.copilot.chat.triggerPermissiveSignIn",
+    "title": "%github.copilot.command.triggerPermissiveSignIn%"
+  },
+  {
+    "command": "github.copilot.claude.sessions.refresh",
+    "title": "%github.copilot.command.refreshClaudeCodeSessions%",
+    "icon": "$(refresh)",
+    "category": "Claude Code"
+  },
+  {
+    "command": "github.copilot.cli.sessions.refresh",
+    "title": "%github.copilot.command.refreshAgentSessions%",
+    "icon": "$(refresh)",
+    "category": "Copilot CLI"
+  },
+  {
+    "command": "github.copilot.cli.sessions.delete",
+    "title": "%github.copilot.command.deleteAgentSession%",
+    "icon": "$(close)",
+    "category": "Copilot CLI"
+  },
+  {
+    "command": "github.copilot.cli.sessions.resumeInTerminal",
+    "title": "%github.copilot.command.cli.sessions.resumeInTerminal%",
+    "icon": "$(terminal)",
+    "category": "Copilot CLI"
+  },
+  {
+    "command": "github.copilot.cli.sessions.newTerminalSession",
+    "title": "%github.copilot.cli.sessions.newTerminalSession%",
+    "icon": "$(terminal)",
+    "category": "Copilot CLI"
+  },
+  {
+    "command": "github.copilot.chat.replay",
+    "title": "Start Chat Replay",
+    "icon": "$(debug-line-by-line)",
+    "enablement": "resourceFilename === 'benchRun.chatReplay.json' && !inDebugMode"
+  },
+  {
+    "command": "github.copilot.chat.replay.enableWorkspaceEditTracing",
+    "title": "%github.copilot.command.enableEditTracing%",
+    "category": "Developer",
+    "enablement": "!github.copilot.chat.replay.workspaceEditTracing"
+  },
+  {
+    "command": "github.copilot.chat.replay.disableWorkspaceEditTracing",
+    "title": "%github.copilot.command.disableEditTracing%",
+    "category": "Developer",
+    "enablement": "github.copilot.chat.replay.workspaceEditTracing"
+  },
+  {
+    "command": "github.copilot.chat.explain",
+    "title": "%github.copilot.command.explainThis%",
+    "enablement": "!github.copilot.interactiveSession.disabled",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.explain.palette",
+    "title": "%github.copilot.command.explainThis%",
+    "enablement": "!github.copilot.interactiveSession.disabled && !editorReadonly",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.review",
+    "title": "%github.copilot.command.reviewAndComment%",
+    "enablement": "config.github.copilot.chat.reviewSelection.enabled && !github.copilot.interactiveSession.disabled",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.review.apply",
+    "title": "%github.copilot.command.applyReviewSuggestion%",
+    "icon": "$(sparkle)",
+    "enablement": "commentThread =~ /hasSuggestion/",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.review.applyAndNext",
+    "title": "%github.copilot.command.applyReviewSuggestionAndNext%",
+    "icon": "$(sparkle)",
+    "enablement": "commentThread =~ /hasSuggestion/",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.review.discard",
+    "title": "%github.copilot.command.discardReviewSuggestion%",
+    "icon": "$(close)",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.review.discardAndNext",
+    "title": "%github.copilot.command.discardReviewSuggestionAndNext%",
+    "icon": "$(close)",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.review.discardAll",
+    "title": "%github.copilot.command.discardAllReviewSuggestion%",
+    "icon": "$(close-all)",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.review.stagedChanges",
+    "title": "%github.copilot.command.reviewStagedChanges%",
+    "icon": "$(code-review)",
+    "enablement": "github.copilot.chat.reviewDiff.enabled && !github.copilot.interactiveSession.disabled",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.review.unstagedChanges",
+    "title": "%github.copilot.command.reviewUnstagedChanges%",
+    "icon": "$(code-review)",
+    "enablement": "github.copilot.chat.reviewDiff.enabled && !github.copilot.interactiveSession.disabled",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.review.changes",
+    "title": "%github.copilot.command.reviewChanges%",
+    "icon": "$(code-review)",
+    "enablement": "github.copilot.chat.reviewDiff.enabled && !github.copilot.interactiveSession.disabled",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.review.stagedFileChange",
+    "title": "%github.copilot.command.reviewFileChange%",
+    "icon": "$(code-review)",
+    "enablement": "github.copilot.chat.reviewDiff.enabled && !github.copilot.interactiveSession.disabled",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.review.unstagedFileChange",
+    "title": "%github.copilot.command.reviewFileChange%",
+    "icon": "$(code-review)",
+    "enablement": "github.copilot.chat.reviewDiff.enabled && !github.copilot.interactiveSession.disabled",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.review.previous",
+    "title": "%github.copilot.command.gotoPreviousReviewSuggestion%",
+    "icon": "$(arrow-up)",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.review.next",
+    "title": "%github.copilot.command.gotoNextReviewSuggestion%",
+    "icon": "$(arrow-down)",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.review.continueInInlineChat",
+    "title": "%github.copilot.command.continueReviewInInlineChat%",
+    "icon": "$(comment-discussion)",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.review.continueInChat",
+    "title": "%github.copilot.command.continueReviewInChat%",
+    "icon": "$(comment-discussion)",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.review.markHelpful",
+    "title": "%github.copilot.command.helpfulReviewSuggestion%",
+    "icon": "$(thumbsup)",
+    "enablement": "!(commentThread =~ /markedAsHelpful/)",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.openUserPreferences",
+    "title": "%github.copilot.command.openUserPreferences%",
+    "category": "Chat",
+    "enablement": "config.github.copilot.chat.enableUserPreferences"
+  },
+  {
+    "command": "github.copilot.chat.tools.memory.openFolder",
+    "title": "%github.copilot.command.openMemoryFolder%",
+    "category": "Chat",
+    "enablement": "config.github.copilot.chat.tools.memory.enabled"
+  },
+  {
+    "command": "github.copilot.chat.review.markUnhelpful",
+    "title": "%github.copilot.command.unhelpfulReviewSuggestion%",
+    "icon": "$(thumbsdown)",
+    "enablement": "!(commentThread =~ /markedAsUnhelpful/)",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.generate",
+    "title": "%github.copilot.command.generateThis%",
+    "icon": "$(sparkle)",
+    "enablement": "!github.copilot.interactiveSession.disabled && !editorReadonly",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.generateDocs",
+    "title": "%github.copilot.command.generateDocs%",
+    "enablement": "!github.copilot.interactiveSession.disabled && !editorReadonly",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.generateTests",
+    "title": "%github.copilot.command.generateTests%",
+    "enablement": "!github.copilot.interactiveSession.disabled && !editorReadonly",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.fix",
+    "title": "%github.copilot.command.fixThis%",
+    "enablement": "!github.copilot.interactiveSession.disabled && !editorReadonly",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.interactiveSession.feedback",
+    "title": "%github.copilot.command.sendChatFeedback%",
+    "enablement": "github.copilot-chat.activated && !github.copilot.interactiveSession.disabled",
+    "icon": "$(feedback)",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.debug.workbenchState",
+    "title": "%github.copilot.command.logWorkbenchState%",
+    "category": "Developer"
+  },
+  {
+    "command": "github.copilot.debug.showChatLogView",
+    "title": "%github.copilot.command.showChatLogView%",
+    "category": "Developer"
+  },
+  {
+    "command": "github.copilot.debug.showOutputChannel",
+    "title": "%github.copilot.command.showOutputChannel%",
+    "category": "Developer"
+  },
+  {
+    "command": "github.copilot.debug.showContextInspectorView",
+    "title": "%github.copilot.command.showContextInspectorView%",
+    "icon": "$(inspect)",
+    "category": "Developer"
+  },
+  {
+    "command": "github.copilot.debug.resetVirtualToolGroups",
+    "title": "%github.copilot.command.resetVirtualToolGroups%",
+    "icon": "$(inspect)",
+    "category": "Developer"
+  },
+  {
+    "command": "github.copilot.terminal.explainTerminalLastCommand",
+    "title": "%github.copilot.command.explainTerminalLastCommand%",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.git.generateCommitMessage",
+    "title": "%github.copilot.git.generateCommitMessage%",
+    "icon": "$(sparkle)",
+    "enablement": "!github.copilot.interactiveSession.disabled",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.git.resolveMergeConflicts",
+    "title": "%github.copilot.git.resolveMergeConflicts%",
+    "icon": "$(chat-sparkle)",
+    "enablement": "!github.copilot.interactiveSession.disabled",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.devcontainer.generateDevContainerConfig",
+    "title": "%github.copilot.devcontainer.generateDevContainerConfig%",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.tests.fixTestFailure",
+    "icon": "$(sparkle)",
+    "title": "%github.copilot.command.fixTestFailure%",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.tests.fixTestFailure.fromInline",
+    "icon": "$(sparkle)",
+    "title": "%github.copilot.command.fixTestFailure%"
+  },
+  {
+    "command": "github.copilot.chat.attachFile",
+    "title": "%github.copilot.chat.attachFile%",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.attachSelection",
+    "title": "%github.copilot.chat.attachSelection%",
+    "icon": "$(comment-discussion)",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.debug.collectDiagnostics",
+    "title": "%github.copilot.command.collectDiagnostics%",
+    "category": "Developer"
+  },
+  {
+    "command": "github.copilot.debug.inlineEdit.clearCache",
+    "title": "%github.copilot.command.inlineEdit.clearCache%",
+    "category": "Developer"
+  },
+  {
+    "command": "github.copilot.debug.inlineEdit.reportNotebookNESIssue",
+    "title": "%github.copilot.command.inlineEdit.reportNotebookNESIssue%",
+    "enablement": "config.github.copilot.chat.advanced.notebook.alternativeNESFormat.enabled || github.copilot.chat.enableEnhancedNotebookNES",
+    "category": "Developer"
+  },
+  {
+    "command": "github.copilot.debug.generateSTest",
+    "title": "%github.copilot.command.generateSTest%",
+    "enablement": "github.copilot.debugReportFeedback",
+    "category": "Developer"
+  },
+  {
+    "command": "github.copilot.open.walkthrough",
+    "title": "%github.copilot.command.openWalkthrough%",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.debug.generateInlineEditTests",
+    "title": "Generate Inline Edit Tests",
+    "category": "Chat",
+    "enablement": "resourceScheme == 'ccreq'"
+  },
+  {
+    "command": "github.copilot.buildLocalWorkspaceIndex",
+    "title": "%github.copilot.command.buildLocalWorkspaceIndex%",
+    "category": "Chat",
+    "enablement": "github.copilot-chat.activated"
+  },
+  {
+    "command": "github.copilot.buildRemoteWorkspaceIndex",
+    "title": "%github.copilot.command.buildRemoteWorkspaceIndex%",
+    "category": "Chat",
+    "enablement": "github.copilot-chat.activated"
+  },
+  {
+    "command": "github.copilot.report",
+    "title": "Report Issue",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.rerunWithCopilotDebug",
+    "title": "%github.copilot.command.rerunWithCopilotDebug%",
+    "category": "Chat"
+  },
+  {
+    "command": "github.copilot.chat.startCopilotDebugCommand",
+    "title": "Start Copilot Debug"
+  },
+  {
+    "command": "github.copilot.chat.clearTemporalContext",
+    "title": "Clear Temporal Context",
+    "category": "Developer"
+  },
+  {
+    "command": "github.copilot.search.markHelpful",
+    "title": "Helpful",
+    "icon": "$(thumbsup)",
+    "enablement": "!github.copilot.search.feedback.sent"
+  },
+  {
+    "command": "github.copilot.search.markUnhelpful",
+    "title": "Unhelpful",
+    "icon": "$(thumbsdown)",
+    "enablement": "!github.copilot.search.feedback.sent"
+  },
+  {
+    "command": "github.copilot.search.feedback",
+    "title": "Feedback",
+    "icon": "$(feedback)",
+    "enablement": "!github.copilot.search.feedback.sent"
+  },
+  {
+    "command": "github.copilot.chat.debug.showElements",
+    "title": "Show Rendered Elements"
+  },
+  {
+    "command": "github.copilot.chat.debug.hideElements",
+    "title": "Hide Rendered Elements"
+  },
+  {
+    "command": "github.copilot.chat.debug.showTools",
+    "title": "Show Tools"
+  },
+  {
+    "command": "github.copilot.chat.debug.hideTools",
+    "title": "Hide Tools"
+  },
+  {
+    "command": "github.copilot.chat.debug.showNesRequests",
+    "title": "Show NES Requests"
+  },
+  {
+    "command": "github.copilot.chat.debug.hideNesRequests",
+    "title": "Hide NES Requests"
+  },
+  {
+    "command": "github.copilot.chat.debug.showRawRequestBody",
+    "title": "Show Raw Request Body"
+  },
+  {
+    "command": "github.copilot.chat.debug.exportLogItem",
+    "title": "Export as...",
+    "icon": "$(export)"
+  },
+  {
+    "command": "github.copilot.chat.debug.exportPromptArchive",
+    "title": "Export All as Archive...",
+    "icon": "$(archive)"
+  },
+  {
+    "command": "github.copilot.chat.debug.exportPromptLogsAsJson",
+    "title": "Export All as JSON...",
+    "icon": "$(export)"
+  },
+  {
+    "command": "github.copilot.chat.debug.exportAllPromptLogsAsJson",
+    "title": "Export All Prompt Logs as JSON...",
+    "icon": "$(export)"
+  },
+  {
+    "command": "github.copilot.chat.showAsChatSession",
+    "title": "Show as chat session",
+    "icon": "$(chat-sparkle)"
+  },
+  {
+    "command": "github.copilot.debug.collectWorkspaceIndexDiagnostics",
+    "title": "%github.copilot.command.collectWorkspaceIndexDiagnostics%",
+    "category": "Developer"
+  },
+  {
+    "command": "github.copilot.chat.mcp.setup.check",
+    "title": "MCP Check: is supported"
+  },
+  {
+    "command": "github.copilot.chat.mcp.setup.validatePackage",
+    "title": "MCP Check: validate package"
+  },
+  {
+    "command": "github.copilot.chat.mcp.setup.flow",
+    "title": "MCP Check: do prompts"
+  },
+  {
+    "command": "github.copilot.chat.generateAltText",
+    "title": "Generate/Refine Alt Text"
+  },
+  {
+    "command": "github.copilot.chat.notebook.enableFollowCellExecution",
+    "title": "Enable Follow Cell Execution from Chat",
+    "shortTitle": "Follow",
+    "icon": "$(pinned)"
+  },
+  {
+    "command": "github.copilot.chat.notebook.disableFollowCellExecution",
+    "title": "Disable Follow Cell Execution from Chat",
+    "shortTitle": "Unfollow",
+    "icon": "$(pinned-dirty)"
+  },
+  {
+    "command": "github.copilot.chat.manageBYOK",
+    "title": "Manage Bring Your Own Key Vendor",
+    "enablement": "false"
+  },
+  {
+    "command": "github.copilot.chat.manageBYOKAPIKey",
+    "title": "Manage Bring Your Own Key API Key",
+    "enablement": "false"
+  },
+  {
+    "command": "github.copilot.cloud.sessions.refresh",
+    "title": "%github.copilot.command.refreshAgentSessions%",
+    "icon": "$(refresh)"
+  },
+  {
+    "command": "github.copilot.cloud.resetWorkspaceConfirmations",
+    "title": "%github.copilot.command.resetCloudAgentWorkspaceConfirmations%"
+  },
+  {
+    "command": "github.copilot.cloud.sessions.openInBrowser",
+    "title": "%github.copilot.command.openCopilotAgentSessionsInBrowser%",
+    "icon": "$(link-external)"
+  },
+  {
+    "command": "github.copilot.cloud.sessions.proxy.closeChatSessionPullRequest",
+    "title": "%github.copilot.command.closeChatSessionPullRequest.title%"
+  },
+  {
+    "command": "github.copilot.chat.openSuggestionsPanel",
+    "title": "Open Completions Panel",
+    "enablement": "github.copilot.extensionUnification.activated && !isWeb",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.chat.toggleStatusMenu",
+    "title": "Open Status Menu",
+    "enablement": "github.copilot.extensionUnification.activated",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.chat.completions.disable",
+    "title": "Disable Inline Suggestions",
+    "enablement": "github.copilot.extensionUnification.activated && github.copilot.activated && config.editor.inlineSuggest.enabled && github.copilot.completions.enabled",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.chat.completions.enable",
+    "title": "Enable Inline Suggestions",
+    "enablement": "github.copilot.extensionUnification.activated && github.copilot.activated && !(config.editor.inlineSuggest.enabled && github.copilot.completions.enabled)",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.chat.completions.toggle",
+    "title": "Toggle (Enable/Disable) Inline Suggestions",
+    "enablement": "github.copilot.extensionUnification.activated && github.copilot.activated",
+    "category": "GitHub Copilot"
+  },
+  {
+    "command": "github.copilot.chat.openModelPicker",
+    "title": "Change Completions Model",
+    "category": "GitHub Copilot",
+    "enablement": "github.copilot.extensionUnification.activated && !isWeb"
+  },
+  {
+    "command": "github.copilot.chat.applyCopilotCLIAgentSessionChanges",
+    "title": "%github.copilot.command.applyCopilotCLIAgentSessionChanges%",
+    "icon": "$(git-stash-pop)",
+    "category": "GitHub Copilot"
+  }
+]
