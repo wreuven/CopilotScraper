@@ -137,32 +137,47 @@ for doc in agent_docs[:5]:
     print()
 ```
 
-## What's NOT Included
+## Extension Metadata (BONUS!)
 
-### Settings Schema
-The official docs describe settings, but the complete JSON schema is in the extension's `package.json`. To get ALL settings:
+We also extracted the **complete extension metadata** directly from the GitHub Copilot extensions:
 
-1. Download the GitHub Copilot extension `.vsix` from the marketplace
-2. Extract and parse `extension/package.json`
-3. Look for `contributes.configuration`
+### What's Included:
 
-### Undocumented Features
-- Internal/experimental settings
-- Extension API details (for building Copilot extensions)
-- Some advanced edge cases
+**GitHub Copilot Extension v1.388.0:**
+- ✅ 3 settings with full JSON schema
+- ✅ 19 commands
+- ✅ 7 keybindings
+- ✅ Complete package.json
 
-### How to Get Complete Settings
+**GitHub Copilot Chat Extension v0.34.2025112801:**
+- ✅ **114 settings** with full JSON schema
+- ✅ **95 commands**
+- ✅ 1 keybinding
+- ✅ Complete package.json
 
-```bash
-# Download extension (example - URL may change)
-curl -L "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/GitHub/vsextensions/copilot/latest/vspackage" -o copilot.vsix
+**Total: 117 settings, 114 commands extracted!**
 
-# Extract
-unzip copilot.vsix
+### Location:
+All in `extension_metadata/` directory:
+- `*_settings.json` - Complete settings schemas with types, defaults, enums
+- `*_commands.json` - All command definitions with categories
+- `*_settings.md` - Human-readable settings documentation
+- `*_commands.md` - Command documentation
+- `*_package.json` - Full extension manifests
+- `SUMMARY.md` - Overview of all extracted metadata
 
-# Parse package.json
-jq '.contributes.configuration' extension/package.json
-```
+### Undocumented Features Discovered:
+
+Many settings are **NOT in the official documentation**:
+- `github.copilot.chat.agent.temperature` - Control model randomness/creativity
+- `github.copilot.chat.anthropic.thinking.budgetTokens` - Claude thinking budget
+- `github.copilot.chat.anthropic.tools.websearch.allowedDomains` - Web search domain filtering
+- `github.copilot.chat.virtualTools.threshold` - Virtual tools management
+- `github.copilot.chat.agent.delegate.autoCommitAndPush` - Auto git operations
+- `github.copilot.chat.agentHistorySummarizationMode` - History compression modes
+- And **77+ more experimental/internal settings!**
+
+See `extension_metadata/SUMMARY.md` for complete details on all undocumented features.
 
 ## Documentation Coverage
 
